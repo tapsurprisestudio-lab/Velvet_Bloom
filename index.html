@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Bloom Flowers | Luxury Satin Flowers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Petals Background -->
+    <div class="petals-container" aria-hidden="true">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="brand-name">Velvet Bloom</a>
+            <div class="header-actions">
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-en">EN</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-ar">عربي</span>
+                </button>
+                <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" data-en="Velvet Bloom Flowers ✨" data-ar="زهور فيلفيت بلوم ✨">Velvet Bloom Flowers ✨</h1>
+            <p class="hero-subtitle" data-en="Luxury Satin Flowers 🌹" data-ar="باقات ساتان فاخرة 🌹">Luxury Satin Flowers 🌹</p>
+            <p class="hero-tagline" data-ar="أجمل باقات الساتان بتصاميم أنثوية راقية">أجمل باقات الساتان بتصاميم أنثوية راقية</p>
+            <p class="hero-note" data-en="Handmade with love 🤍 • Custom designs" data-ar="مصنوع يدويًا بحب 🤍 • تصاميم مخصصة">Handmade with love 🤍 • Custom designs</p>
+            <a href="#products" class="cta-btn" data-en="Explore Collection 💐" data-ar="استكشفي المجموعة 💐">Explore Collection 💐</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Our Collection" data-ar="مجموعتنا">Our Collection</h2>
+            <p class="section-subtitle" data-en="Handcrafted with love" data-ar="مصنوع يدويًا بحب">Handcrafted with love</p>
+        </div>
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be rendered by JS -->
+        </div>
+    </section>
+
+    <!-- Why Velvet Bloom Section -->
+    <section class="why-section">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Why Velvet Bloom?" data-ar="لماذا فيلفيت بلوم؟">Why Velvet Bloom?</h2>
+        </div>
+        <div class="why-cards">
+            <div class="why-card">
+                <div class="why-icon">🤍</div>
+                <h3 data-en="Handmade with Love" data-ar="مصنوع يدويًا بحب">Handmade with Love</h3>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🎀</div>
+                <h3 data-en="Luxury Feminine Wrapping" data-ar="تغليف أنثوي فاخر">Luxury Feminine Wrapping</h3>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">✨</div>
+                <h3 data-en="Designs for Every Occasion" data-ar="تصاميم لكل المناسبات">Designs for Every Occasion</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-tagline" data-en="Order now via DM 💌" data-ar="اطلبي الآن عبر الرسائل 💌">Order now via DM 💌</p>
+        <a href="https://www.instagram.com/velvetbloom_flower" target="_blank" class="instagram-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>@velvetbloom_flower</span>
+        </a>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 data-en="Your Cart" data-ar="سلتك">Your Cart</h2>
+            <button class="cart-close" id="cartClose" aria-label="Close cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be rendered by JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span data-en="Price will be confirmed via DM 💌" data-ar="سيتم تأكيد السعر في الرسائل 💌">Price will be confirmed via DM 💌</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" data-en="Checkout via Instagram 💌" data-ar="إتمام الطلب عبر انستغرام 💌">Checkout via Instagram 💌</button>
+            <button class="copy-btn" id="copyBtn" data-en="Copy Order" data-ar="نسخ الطلب">Copy Order</button>
+        </div>
+    </aside>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span data-en="Copied to clipboard! ✨" data-ar="تم النسخ! ✨">Copied to clipboard! ✨</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
