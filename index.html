@@ -22,11 +22,26 @@
         <div class="petal"></div>
     </div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <a href="#" class="brand-name">Velvet Bloom</a>
-            <div class="header-actions">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <a href="#home" class="nav-brand">
+                <img src="https://i.imgur.com/942j3kt.jpeg" alt="Velvet Bloom" class="nav-logo">
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="#products" class="nav-link" data-en="Products" data-ar="المنتجات">Products</a></li>
+                <li><a href="#about" class="nav-link" data-en="About" data-ar="من نحن">About</a></li>
+                <li><a href="#reviews" class="nav-link" data-en="Reviews" data-ar="آراء العملاء">Reviews</a></li>
+                <li><a href="#howto" class="nav-link" data-en="How to Order" data-ar="كيف تطلبين؟">How to Order</a></li>
+                <li><a href="#contact" class="nav-link" data-en="Contact" data-ar="تواصل">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
                 <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
                     <span class="lang-en">EN</span>
                     <span class="lang-divider">|</span>
@@ -36,22 +51,29 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
+                        <path d="M16 10a4 4 0 0 1-8                     </svg>
+0"></path>
                     <span class="cart-badge" id="cartBadge">0</span>
                 </button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <section class="hero" id="home">
+        <div class="hero-glow"></div>
         <div class="hero-content">
+            <img src="https://i.imgur.com/942j3kt.jpeg" alt="Velvet Bloom Logo" class="hero-logo">
             <h1 class="hero-title" data-en="Velvet Bloom Flowers ✨" data-ar="زهور فيلفيت بلوم ✨">Velvet Bloom Flowers ✨</h1>
             <p class="hero-subtitle" data-en="Luxury Satin Flowers 🌹" data-ar="باقات ساتان فاخرة 🌹">Luxury Satin Flowers 🌹</p>
             <p class="hero-tagline" data-ar="أجمل باقات الساتان بتصاميم أنثوية راقية">أجمل باقات الساتان بتصاميم أنثوية راقية</p>
-            <p class="hero-note" data-en="Handmade with love 🤍 • Custom designs" data-ar="مصنوع يدويًا بحب 🤍 • تصاميم مخصصة">Handmade with love 🤍 • Custom designs</p>
+            <p class="hero-poem" data-en="Velvet Bloom… velvet flowers that never fade, so the memory lasts for years 🤍" data-ar="Velvet Bloom… الزهرة المخملية التي لا تذبل، لتبقى ذكرى لسنوات 🤍">Velvet Bloom… velvet flowers that never fade, so the memory lasts for years 🤍</p>
             <a href="#products" class="cta-btn" data-en="Explore Collection 💐" data-ar="استكشفي المجموعة 💐">Explore Collection 💐</a>
+            <div class="hero-badges">
+                <span data-en="Handmade with love 🤍" data-ar="مصنوع يدويًا بحب 🤍">Handmade with love 🤍</span>
+                <span data-en="Custom wrapping 🎀" data-ar="تغليف مخصص 🎀">Custom wrapping 🎀</span>
+                <span data-en="DM ordering 💌" data-ar="طلب عبر الرسائل 💌">DM ordering 💌</span>
+            </div>
         </div>
     </section>
 
@@ -61,29 +83,110 @@
             <h2 class="section-title" data-en="Our Collection" data-ar="مجموعتنا">Our Collection</h2>
             <p class="section-subtitle" data-en="Handcrafted with love" data-ar="مصنوع يدويًا بحب">Handcrafted with love</p>
         </div>
+        <p class="price-note" data-en="Prices in DZD. Orders are confirmed via Instagram DM 💌" data-ar="الأسعار بالدينار الجزائري (دج). الطلب يتم عبر رسائل إنستغرام 💌">Prices in DZD. Orders are confirmed via Instagram DM 💌</p>
         <div class="products-grid" id="productsGrid">
             <!-- Products will be rendered by JS -->
         </div>
+        <p class="coming-soon" data-en="Coming soon: more products & full online payment ✨" data-ar="قريبًا: منتجات أكثر + دفع إلكتروني كامل ✨">Coming soon: more products & full online payment ✨</p>
     </section>
 
-    <!-- Why Velvet Bloom Section -->
-    <section class="why-section">
+    <!-- About Section -->
+    <section class="about" id="about">
         <div class="section-header">
-            <h2 class="section-title" data-en="Why Velvet Bloom?" data-ar="لماذا فيلفيت بلوم؟">Why Velvet Bloom?</h2>
+            <h2 class="section-title" data-en="Our Story" data-ar="قصتنا">Our Story</h2>
         </div>
-        <div class="why-cards">
-            <div class="why-card">
-                <div class="why-icon">🤍</div>
-                <h3 data-en="Handmade with Love" data-ar="مصنوع يدويًا بحب">Handmade with Love</h3>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://i.imgur.com/942j3kt.jpeg" alt="Velvet Bloom Logo">
             </div>
-            <div class="why-card">
-                <div class="why-icon">🎀</div>
-                <h3 data-en="Luxury Feminine Wrapping" data-ar="تغليف أنثوي فاخر">Luxury Feminine Wrapping</h3>
+            <div class="about-text">
+                <p data-en="My story began when I wanted to gift something special for my niece's arrival… My first handmade bouquet was made with love, and my passion kept growing day by day." data-ar="بدأت قصتي عندما أردت تقديم هدية مميزة بمناسبة ولادة ابنة أختي… كانت أول باقة أصنعها بيدي، وكانت لأحب الناس إلى قلبي. ومن تلك اللحظة بدأ الشغف يكبر يومًا بعد يوم…">My story began when I wanted to gift something special for my niece's arrival… My first handmade bouquet was made with love, and my passion kept growing day by day.</p>
+                <p data-en="I created designs for family moments, then for friends… Their support inspired me to launch Velvet Bloom." data-ar="صنعت لعائلتي في مناسباتهم، ثم لصديقاتي… وكان دعمهم وتشجيعهم هو الخطوة التي دفعتني لأُطلق Velvet Bloom.">I created designs for family moments, then for friends… Their support inspired me to launch Velvet Bloom.</p>
+                <p data-en="Velvet Bloom means 'the velvet flower' — because satin flowers never fade, and the memory stays for years 🤍" data-ar="Velvet Bloom تعني \"الزهرة المخملية\"… لأن زهور الساتان لا تذبل، وتدوم طويلًا… لتبقى ذكراها جميلة في القلب لسنوات 🤍">Velvet Bloom means 'the velvet flower' — because satin flowers never fade, and the memory stays for years 🤍</p>
+                <p data-en="Thank you to everyone who supported me, even with a kind word 🫶🏼" data-ar="وأخيرًا… أشكر كل من دعمني، حتى ولو بكلمة 🫶🏼">Thank you to everyone who supported me, even with a kind word 🫶🏼</p>
             </div>
-            <div class="why-card">
-                <div class="why-icon">✨</div>
-                <h3 data-en="Designs for Every Occasion" data-ar="تصاميم لكل المناسبات">Designs for Every Occasion</h3>
+        </div>
+        <div class="about-values">
+            <div class="value-card">
+                <span class="value-icon">🤍</span>
+                <span data-en="Handmade with love" data-ar="مصنوع يدويًا بحب">Handmade with love</span>
             </div>
+            <div class="value-card">
+                <span class="value-icon">🎀</span>
+                <span data-en="Elegant wrapping" data-ar="تغليف أنيق">Elegant wrapping</span>
+            </div>
+            <div class="value-card">
+                <span class="value-icon">✨</span>
+                <span data-en="For every occasion" data-ar="لكل المناسبات">For every occasion</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Customer Reviews" data-ar="آراء العملاء">Customer Reviews</h2>
+        </div>
+        <div class="reviews-content">
+            <p class="reviews-placeholder" data-en="Real customer reviews will be added soon ✨ If you've ordered from Velvet Bloom, DM us your feedback 💌" data-ar="سيتم إضافة آراء عميلاتنا الحقيقية قريبًا ✨ إذا سبق وطلبتي من Velvet Bloom، شاركينا رأيك عبر رسائل إنستغرام 💌">Real customer reviews will be added soon ✨ If you've ordered from Velvet Bloom, DM us your feedback 💌</p>
+            <a href="https://www.instagram.com/direct/new/" target="_blank" class="review-btn" data-en="Send my review 💌" data-ar="إرسال رأيي 💌">Send my review 💌</a>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section class="howto" id="howto">
+        <div class="section-header">
+            <h2 class="section-title" data-en="How to Order" data-ar="كيف تطلبين؟">How to Order</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <span class="step-number">1</span>
+                <span class="step-icon">🌸</span>
+                <h3 data-en="Choose your products" data-ar="اختاري منتجاتك">Choose your products</h3>
+            </div>
+            <div class="step-card">
+                <span class="step-number">2</span>
+                <span class="step-icon">🛒</span>
+                <h3 data-en="Add to cart" data-ar="أضيفي للسلة">Add to cart</h3>
+            </div>
+            <div class="step-card">
+                <span class="step-number">3</span>
+                <span class="step-icon">📝</span>
+                <h3 data-en="Tap Checkout" data-ar="اضغطي إتمام الطلب">Tap Checkout</h3>
+            </div>
+            <div class="step-card">
+                <span class="step-number">4</span>
+                <span class="step-icon">📋</span>
+                <h3 data-en="Copy order message" data-ar="انسخي رسالة الطلب">Copy order message</h3>
+            </div>
+            <div class="step-card">
+                <span class="step-number">5</span>
+                <span class="step-icon">📱</span>
+                <h3 data-en="Open Instagram & paste" data-ar="افتحي إنستغرام والصقي">Open Instagram & paste</h3>
+            </div>
+            <div class="step-card">
+                <span class="step-number">6</span>
+                <span class="step-icon">💌</span>
+                <h3 data-en="We confirm details in DM" data-ar="نؤكد السعر والتفاصيل في الرسائل">We confirm details in DM</h3>
+            </div>
+        </div>
+        <p class="coming-soon" data-en="Coming soon: more products + full online payments ✨" data-ar="قريبًا: منتجات أكثر + دفع إلكتروني كامل ✨">Coming soon: more products + full online payments ✨</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</h2>
+        </div>
+        <div class="contact-content">
+            <p data-en="We'd love to hear from you! Send us a message on Instagram." data-ar="نحب أن نسمع منك! أرسلينا رسالة على إنستغرام.">We'd love to hear from you! Send us a message on Instagram.</p>
+            <a href="https://www.instagram.com/velvetbloom_flower" target="_blank" class="instagram-btn-large">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span data-en="DM us on Instagram" data-ar="راسلينا على إنستغرام">DM us on Instagram</span>
+            </a>
+            <p class="instagram-handle">@velvetbloom_flower</p>
         </div>
     </section>
 
@@ -121,6 +224,34 @@
             <button class="copy-btn" id="copyBtn" data-en="Copy Order" data-ar="نسخ الطلب">Copy Order</button>
         </div>
     </aside>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="modal-header">
+            <h2 data-en="One last step 💌" data-ar="خطوة أخيرة 💌">One last step 💌</h2>
+            <button class="modal-close" id="modalClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-step">
+                <span class="step-label">1</span>
+                <p data-en="Tap Copy Order to copy your order message" data-ar="اضغطي (نسخ الطلب) لنسخ رسالة الطلب">Tap Copy Order to copy your order message</p>
+            </div>
+            <div class="modal-step">
+                <span class="step-label">2</span>
+                <p data-en="Tap Open Instagram, paste the message, and send it to us" data-ar="بعدها اضغطي (فتح إنستغرام) ثم الصقي الرسالة وأرسليها لنا">Tap Open Instagram, paste the message, and send it to us</p>
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button class="copy-btn modal-copy-btn" id="modalCopyBtn" data-en="Copy Order" data-ar="نسخ الطلب">Copy Order</button>
+            <button class="instagram-btn modal-ig-btn" id="modalIgBtn" data-en="Open Instagram DM" data-ar="فتح إنستغرام">Open Instagram DM</button>
+        </div>
+    </div>
 
     <!-- Toast Notification -->
     <div class="toast" id="toast">
