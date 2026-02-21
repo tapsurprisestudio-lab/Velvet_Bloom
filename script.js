@@ -1,5 +1,5 @@
 // ========================================
-// Velvet Bloom Flowers - JavaScript
+// Velvet Bloom Flowers - JavaScript V2
 // ========================================
 
 // Product Data
@@ -9,42 +9,48 @@ const products = [
         image: 'https://i.imgur.com/M12Hbzf.jpeg',
         nameEn: 'Classic Red Satin Bouquet',
         nameAr: 'باقة ساتان حمراء كلاسيكية',
-        tag: 'Best Seller ✨'
+        tag: 'Best Seller ✨',
+        price: null
     },
     {
         id: 2,
         image: 'https://i.imgur.com/Ecup9L2.jpeg',
         nameEn: 'Luxury Rose Box (Red & Pink)',
         nameAr: 'بوكس ورد فاخر (أحمر ووردي)',
-        tag: 'Luxury Box 💎'
+        tag: 'Luxury Box 💎',
+        price: null
     },
     {
         id: 3,
         image: 'https://i.imgur.com/FDyOE79.jpeg',
         nameEn: 'Heart Rose Arrangement',
         nameAr: 'قلب الورد الساتان',
-        tag: 'Love Edition ❤️'
+        tag: 'Love Edition ❤️',
+        price: null
     },
     {
         id: 4,
         image: 'https://i.imgur.com/J9qnR3z.jpeg',
         nameEn: 'Baby Arrival Bouquet',
         nameAr: 'باقة قدوم مولود',
-        tag: 'Baby 🍼'
+        tag: 'Baby 🍼',
+        price: null
     },
     {
         id: 5,
         image: 'https://i.imgur.com/7qDyG90.jpeg',
         nameEn: 'Graduation Special Bouquet',
         nameAr: 'باقة تخرج مميزة',
-        tag: 'Graduation 🎓'
+        tag: 'Graduation 🎓',
+        price: null
     },
     {
         id: 6,
         image: 'https://i.imgur.com/pPjtLbP.jpeg',
         nameEn: 'Deluxe Combo (Bouquet + Chocolate + Wrapping)',
         nameAr: 'باقة + شوكولاتة + تغليف فاخر',
-        tag: 'Gift Set 🎁'
+        tag: 'Gift Set 🎁',
+        price: null
     }
 ];
 
@@ -65,6 +71,18 @@ const copyBtn = document.getElementById('copyBtn');
 const toast = document.getElementById('toast');
 const langToggle = document.getElementById('langToggle');
 const html = document.documentElement;
+
+// Modal Elements
+const modalOverlay = document.getElementById('modalOverlay');
+const checkoutModal = document.getElementById('checkoutModal');
+const modalClose = document.getElementById('modalClose');
+const modalCopyBtn = document.getElementById('modalCopyBtn');
+const modalIgBtn = document.getElementById('modalIgBtn');
+
+// Navigation
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('.nav-link');
 
 // ========================================
 // Language Functions
@@ -107,6 +125,44 @@ langToggle.addEventListener('click', () => {
     const newLang = currentLang === 'en' ? 'ar' : 'en';
     setLanguage(newLang);
 });
+
+// ========================================
+// Navigation Functions
+// ========================================
+
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+});
+
+// Close mobile menu when clicking a link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+    });
+});
+
+// Active nav link on scroll
+function updateActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNav);
 
 // ========================================
 // Product Functions
@@ -256,11 +312,13 @@ function generateDMMessage() {
 إضافة شوكولاتة؟ (نعم/لا):
 تغليف فاخر؟ (نعم/لا):
 
+العملة: دج
 السعر: أرجو تأكيد السعر في الرسائل 💌
 
 الاسم:
-العنوان:
-رقم الهاتف:`;
+رقم الهاتف:
+الولاية:
+ملاحظة:`;
     } else {
         message = `Hi 🌸
 I'd like to order from Velvet Bloom Flowers:
@@ -273,11 +331,13 @@ I'd like to order from Velvet Bloom Flowers:
 Add chocolates? (Yes/No):
 Luxury wrapping? (Yes/No):
 
+Currency: DZD
 Price: Please confirm in DM 💌
 
 Name:
-Address:
-Phone:`;
+Phone:
+State:
+Note:`;
     }
     
     return message;
@@ -308,29 +368,46 @@ function showToast() {
     }, 3000);
 }
 
-function checkout() {
-    if (cart.length === 0) {
-        return;
-    }
-    
-    const message = generateDMMessage();
-    
-    // Copy message to clipboard
-    copyToClipboard(message);
-    
-    // Open Instagram DM
-    setTimeout(() => {
-        window.open('https://www.instagram.com/direct/new/', '_blank');
-    }, 500);
+// Checkout Modal Functions
+function openCheckoutModal() {
+    if (cart.length === 0) return;
+    checkoutModal.classList.add('open');
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
 }
 
+function closeCheckoutModal() {
+    checkoutModal.classList.remove('open');
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function handleCheckout() {
+    if (cart.length === 0) return;
+    openCheckoutModal();
+}
+
+function handleModalCopy() {
+    const message = generateDMMessage();
+    copyToClipboard(message);
+}
+
+function handleModalIG() {
+    window.open('https://www.instagram.com/direct/new/', '_blank');
+}
+
+// Event Listeners
+checkoutBtn.addEventListener('click', handleCheckout);
 copyBtn.addEventListener('click', () => {
     if (cart.length === 0) return;
     const message = generateDMMessage();
     copyToClipboard(message);
 });
 
-checkoutBtn.addEventListener('click', checkout);
+modalClose.addEventListener('click', closeCheckoutModal);
+modalOverlay.addEventListener('click', closeCheckoutModal);
+modalCopyBtn.addEventListener('click', handleModalCopy);
+modalIgBtn.addEventListener('click', handleModalIG);
 
 // ========================================
 // Scroll Animations
@@ -338,11 +415,9 @@ checkoutBtn.addEventListener('click', checkout);
 
 function observeElements() {
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 100);
+                entry.target.classList.add('visible');
             }
         });
     }, {
@@ -351,7 +426,7 @@ function observeElements() {
     });
     
     // Observe product cards and why cards
-    document.querySelectorAll('.product-card, .why-card').forEach(el => {
+    document.querySelectorAll('.product-card, .why-card, .value-card, .step-card').forEach(el => {
         el.classList.remove('visible');
         observer.observe(el);
     });
@@ -369,7 +444,7 @@ function observeSections() {
         threshold: 0.1
     });
     
-    document.querySelectorAll('.products, .why-section').forEach(section => {
+    document.querySelectorAll('.products, .about, .reviews, .howto, .contact').forEach(section => {
         section.classList.add('fade-section');
         sectionObserver.observe(section);
     });
