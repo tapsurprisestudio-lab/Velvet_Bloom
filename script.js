@@ -10,7 +10,7 @@ const products = [
         nameEn: 'Classic Red Satin Bouquet',
         nameAr: 'باقة ساتان حمراء كلاسيكية',
         tag: 'Best Seller ✨',
-        price: null
+        price: 1800
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ const products = [
         nameEn: 'Luxury Rose Box (Red & Pink)',
         nameAr: 'بوكس ورد فاخر (أحمر ووردي)',
         tag: 'Luxury Box 💎',
-        price: null
+        price: 2000
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const products = [
         nameEn: 'Heart Rose Arrangement',
         nameAr: 'قلب الورد الساتان',
         tag: 'Love Edition ❤️',
-        price: null
+        price: 2500
     },
     {
         id: 4,
@@ -34,7 +34,7 @@ const products = [
         nameEn: 'Baby Arrival Bouquet',
         nameAr: 'باقة قدوم مولود',
         tag: 'Baby 🍼',
-        price: null
+        price: 2500
     },
     {
         id: 5,
@@ -51,6 +51,62 @@ const products = [
         nameAr: 'باقة + شوكولاتة + تغليف فاخر',
         tag: 'Gift Set 🎁',
         price: null
+    },
+    {
+        id: 7,
+        image: 'https://i.imgur.com/hTYNG5d.png',
+        nameEn: 'Premium Mauve Bouquet',
+        nameAr: 'باقة بنفسجي فاخر',
+        tag: 'New 🌸',
+        price: 1500
+    },
+    {
+        id: 8,
+        image: 'https://i.imgur.com/awp259b.png',
+        nameEn: 'Elegant Rose Bouquet',
+        nameAr: 'باقة ورود أنيقة',
+        tag: 'New 🌹',
+        price: 1800
+    },
+    {
+        id: 9,
+        image: 'https://i.imgur.com/yFFf6rs.jpeg',
+        nameEn: 'Wrapped Bouquet (Beautiful Packaging)',
+        nameAr: 'باقة مغلفة (تغليف جميل)',
+        tag: 'New 🎀',
+        price: 800
+    },
+    {
+        id: 10,
+        image: 'https://i.imgur.com/YQD1Kbz.png',
+        nameEn: 'Pink Roses Bouquet',
+        nameAr: 'باقة ورود وردي',
+        tag: 'New 💗',
+        price: 1500
+    },
+    {
+        id: 11,
+        image: 'https://i.imgur.com/EGSpwv8.png',
+        nameEn: 'Pink Wrap + White & Pink Roses',
+        nameAr: 'وردي + ابيض ووردي',
+        tag: 'New ✨',
+        price: 2300
+    },
+    {
+        id: 12,
+        image: 'https://i.imgur.com/v1KL5iv.png',
+        nameEn: 'Luxury Bouquet (Special Edition)',
+        nameAr: 'باقة فاخرة (إصدار خاص)',
+        tag: 'Special 🏆',
+        price: 2000
+    },
+    {
+        id: 13,
+        image: 'https://i.imgur.com/CtLrySx.png',
+        nameEn: 'Pink Rose Box',
+        nameAr: 'بوكس ورود وردي',
+        tag: 'Luxury 💎',
+        price: 3000
     }
 ];
 
@@ -172,7 +228,10 @@ function getProductName(product) {
     return currentLang === 'ar' ? product.nameAr : product.nameEn;
 }
 
-function getPriceText() {
+function getPriceText(product) {
+    if (product.price) {
+        return currentLang === 'ar' ? `${product.price} دج` : `${product.price} DA`;
+    }
     return currentLang === 'ar' ? 'السعر عند الطلب 💌' : 'Price via DM 💌';
 }
 
@@ -189,7 +248,7 @@ function renderProducts() {
             </div>
             <div class="product-info">
                 <h3 class="product-name">${getProductName(product)}</h3>
-                <p class="product-price">${getPriceText()}</p>
+                <p class="product-price">${getPriceText(product)}</p>
                 <div class="quantity-stepper">
                     <button class="qty-btn" onclick="updateQty(${product.id}, -1)">−</button>
                     <span class="qty-value" id="qty-${product.id}">1</span>
@@ -222,6 +281,7 @@ function addToCart(productId) {
             nameEn: product.nameEn,
             nameAr: product.nameAr,
             image: product.image,
+            price: product.price,
             qty: qty
         });
     }
@@ -266,6 +326,7 @@ function renderCart() {
             <div class="cart-item-details">
                 <h4 class="cart-item-name">${getProductName(item)}</h4>
                 <p class="cart-item-qty">${currentLang === 'ar' ? 'الكمية' : 'Qty'}: ${item.qty}</p>
+                ${item.price ? `<p class="cart-item-price">${item.price} DA</p>` : ''}
                 <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
                     ${currentLang === 'ar' ? 'إزالة' : 'Remove'}
                 </button>
@@ -299,6 +360,8 @@ function generateDMMessage() {
     const isArabic = currentLang === 'ar';
     
     let message;
+    let totalPrice = 0;
+    let hasPrice = false;
     
     if (isArabic) {
         message = `مرحبًا 🌸
@@ -306,14 +369,20 @@ function generateDMMessage() {
 
 `;
         cart.forEach(item => {
-            message += `• ${item.nameAr} x ${item.qty}\n`;
+            message += `• ${item.nameAr} x ${item.qty}`;
+            if (item.price) {
+                message += ` - ${item.price * item.qty} DA`;
+                totalPrice += item.price * item.qty;
+                hasPrice = true;
+            }
+            message += `\n`;
         });
         message += `
 إضافة شوكولاتة؟ (نعم/لا):
 تغليف فاخر؟ (نعم/لا):
 
 العملة: دج
-السعر: أرجو تأكيد السعر في الرسائل 💌
+${hasPrice ? `الإجمالي: ${totalPrice} DA` : 'السعر: أرجو تأكيد السعر في الرسائل 💌'}
 
 الاسم:
 رقم الهاتف:
@@ -325,14 +394,20 @@ I'd like to order from Velvet Bloom Flowers:
 
 `;
         cart.forEach(item => {
-            message += `• ${item.nameEn} x ${item.qty}\n`;
+            message += `• ${item.nameEn} x ${item.qty}`;
+            if (item.price) {
+                message += ` - ${item.price * item.qty} DA`;
+                totalPrice += item.price * item.qty;
+                hasPrice = true;
+            }
+            message += `\n`;
         });
         message += `
 Add chocolates? (Yes/No):
 Luxury wrapping? (Yes/No):
 
 Currency: DZD
-Price: Please confirm in DM 💌
+${hasPrice ? `Total: ${totalPrice} DA` : 'Price: Please confirm in DM 💌'}
 
 Name:
 Phone:
