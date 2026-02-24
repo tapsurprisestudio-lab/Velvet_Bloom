@@ -239,6 +239,10 @@ function getAddToCartText() {
     return currentLang === 'ar' ? 'أضيفي للسلة' : 'Add to Cart';
 }
 
+function getQuickViewText() {
+    return currentLang === 'ar' ? 'عرض سريع' : 'Quick View';
+}
+
 function renderProducts() {
     productsGrid.innerHTML = products.map((product, index) => `
         <div class="product-card" data-index="${index}">
@@ -249,12 +253,10 @@ function renderProducts() {
             <div class="product-info">
                 <h3 class="product-name">${getProductName(product)}</h3>
                 <p class="product-price">${getPriceText(product)}</p>
-                <div class="quantity-stepper">
-                    <button class="qty-btn" onclick="updateQty(${product.id}, -1)">−</button>
-                    <span class="qty-value" id="qty-${product.id}">1</span>
-                    <button class="qty-btn" onclick="updateQty(${product.id}, 1)">+</button>
+                <div class="product-buttons">
+                    <button class="quickview-btn" onclick="openQuickView(${product.id})">${getQuickViewText()}</button>
+                    <button class="add-to-cart-btn" onclick="addToCart(${product.id})">${getAddToCartText()}</button>
                 </div>
-                <button class="add-to-cart-btn" onclick="addToCart(${product.id})">${getAddToCartText()}</button>
             </div>
         </div>
     `).join('');
@@ -536,6 +538,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render products
     renderProducts();
     
+    // Quick View Modal Event Listeners
+    const quickviewClose = document.getElementById('quickviewClose');
+    const quickviewOverlay = document.getElementById('quickviewOverlay');
+    if (quickviewClose) {
+        quickviewClose.addEventListener('click', closeQuickView);
+    }
+    if (quickviewOverlay) {
+        quickviewOverlay.addEventListener('click', closeQuickView);
+    }
+    
     // Observe elements for scroll animations
     setTimeout(() => {
         observeElements();
@@ -557,7 +569,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ========================================
+// Quick View Modal
+// ========================================
+
+function openQuickView(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    
+    const modal = document.getElementById('quickviewModal');
+    const overlay = document.getElementById('quickviewOverlay');
+    const imgEl = document.getElementById('quickviewImage');
+    const tagEl = document.getElementById('quickviewTag');
+    const nameEl = document.getElementById('quickviewName');
+    const priceEl = document.getElementById('quickviewPrice');
+    const addBtn = document.getElementById('quickviewAddBtn');
+    
+    imgEl.src = product.image;
+    imgEl.alt = getProductName(product);
+    tagEl.textContent = product.tag;
+    nameEl.textContent = getProductName(product);
+    priceEl.textContent = getPriceText(product);
+    
+    // Update button text for current language
+    addBtn.textContent = getAddToCartText();
+    
+    // Set add button click
+    addBtn.onclick = function() {
+        addToCart(product.id);
+        closeQuickView();
+    };
+    
+    modal.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickView() {
+    const modal = document.getElementById('quickviewModal');
+    const overlay = document.getElementById('quickviewOverlay');
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 // Make functions available globally
 window.updateQty = updateQty;
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
+window.openQuickView = openQuickView;
+window.closeQuickView = closeQuickView;
