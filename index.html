@@ -253,6 +253,28 @@
         </div>
     </div>
 
+    <!-- Quick View Modal -->
+    <div class="quickview-overlay" id="quickviewOverlay"></div>
+    <div class="quickview-modal" id="quickviewModal">
+        <div class="quickview-content">
+            <button class="quickview-close" id="quickviewClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="quickview-image">
+                <img src="" alt="" id="quickviewImage">
+            </div>
+            <div class="quickview-details">
+                <span class="quickview-tag" id="quickviewTag"></span>
+                <h3 class="quickview-name" id="quickviewName"></h3>
+                <p class="quickview-price" id="quickviewPrice"></p>
+                <button class="quickview-add-btn" id="quickviewAddBtn" data-en="Add to Cart" data-ar="أضيفي للسلة">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification -->
     <div class="toast" id="toast">
         <span data-en="Copied to clipboard! ✨" data-ar="تم النسخ! ✨">Copied to clipboard! ✨</span>
